@@ -25,7 +25,7 @@ Resume Builder is a web application designed to help users create professional r
    cd resume-builder
    ```
 3. Run the application locally:
-   - Open `index.html` in your web browser.
+   - Open `Resume-builder.html` in your web browser.
 
 ## Usage
 1. Fill out the form fields with your personal information, education, work experience, skills, etc.
