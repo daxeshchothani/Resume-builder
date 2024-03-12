@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <title>CV Generator | Team Empires</title>
+    <!-- <script src="./script.js"></script> -->
+    <style>
+        #cv-template {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- form for CV -->
+    <div class="container" id="cv-form">
+        <h1 class="text-center my-2">CV Generator</h1>
+        <p class="text-center mb-4">CV Generator By <b>Team Empires!</b></p>
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <!-- first column -->
+                <h3 mb-2>Personal Information</h3>
+
+                <!-- name -->
+                <div class="form-group mt-2">
+                    <label for="nameField">Your name</label>
+                    <input type="text" id="nameField" class="form-control" placeholder="Enter here!">
+                </div>
+
+                <!-- contact -->
+                <div class="form-group mt-2">
+                    <label for="contactField">Your contact</label>
+                    <input type="text" id="contactField" class="form-control" placeholder="Enter here!">
+                </div>
+
+                <!-- address -->
+                <div class="form-group mt-2">
+                    <label for="addressField">Your address</label>
+                    <textarea id="addressField" class="form-control" placeholder="Enter here!"></textarea>
+                </div>
+
+                <!-- links -->
+                <p class="text-secondary my-3">Important Links</p>
+                <div class="form-group mt-2">
+                    <label for="linkedField">LinkedIn</label>
+                    <input type="text" id="linkedField" class="form-control" placeholder="Enter here!">
+                </div>
+                <div class="form-group mt-2">
+                    <label for="emailField">Email</label>
+                    <input type="text" id="emailField" class="form-control" placeholder="Enter here!">
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+                <!-- second column -->
+                <h3>Professional Information</h3>
+
+                <!-- objectives -->
+                <div class="form-group mt-2">
+                    <label for="addressField">Objectives</label>
+                    <textarea id="objectiveField" class="form-control" placeholder="Enter here!"></textarea>
+                </div>
+
+                <!-- work experience -->
+                <div class="form-group mt-2" id="we">
+                    <label for="weField">Your work experience</label>
+                    <textarea class="form-control weField mt-2" placeholder="Enter here!"></textarea>
+                    <!-- new field comes here -->
+                    <div class="container text-center mt-2 weAddBtn">
+                        <button class="btn btn-dark btn-sm" onclick="addweField()">Add</button>
+                    </div>
+                </div>
+
+                <!-- academic qualifications -->
+                <div class="form-group mt-2" id="aq">
+                    <label for="weField">Your Academic qualifications</label>
+                    <textarea class="form-control aqField mt-2" placeholder="Enter here!"></textarea>
+                    <!-- new field comes here -->
+                    <div class="container text-center mt-2 aqAddBtn">
+                        <button class="btn btn-dark btn-sm" onclick="addaqField()">Add</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- print btn -->
+        <div class="container text-center mt-4">
+            <button class="btn btn-dark" onclick="generateCV()">Generate CV</button>
+        </div>
+
+    </div>
+
+
+
+
+    <!-- cv-template for CV -->
+    <div class="container" id="cv-template">
+        <div class="row">
+            <div class="col-md-4 py-5 text-center" style="background-color: aqua;">
+                <!-- first col -->
+                <!-- <img style="border-radius: 50%; width: 200px;" src="./default-profile-picture1.jpg" alt="" class="img-fluid"> -->
+                <div class="container">
+                    <p id="nameT1"> </p>
+                    <p id="contactT"> </p>
+                    <p id="addressT"> </p>
+                    <hr>
+
+                    <p>
+                        <a id="linkedT" href="#1"> </a>
+                    </p>
+                    <p>
+                        <a id="gmailT" href="#1"> </a>
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="col-md-8 py-5">
+                <!-- second col -->
+                <h1 id="nameT2" class="text-center" style="font-weight: 900;"> </h1>
+
+                <!-- objective card -->
+                <div class="card mt-4">
+                    <div class="card-header" style="background-color: aqua;">
+                        <h3>Objective</h3>
+                    </div>
+                    <div class="card-body">
+                        <p id="objectiveT"> </p>
+                    </div>
+                </div>
+
+                <!-- work experience -->
+                <div class="card mt-4">
+                    <div class="card-header" style="background-color: aqua;">
+                        <h3>Work Experience</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul id="weT">
+                            <li></li>
+                        </ul>
+                        <!-- <ul>
+                            <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt, voluptates.</li>
+                        </ul>
+                        <ul>
+                            <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt, voluptates.</li>
+                        </ul> -->
+                    </div>
+                </div>
+
+                <!-- academic qualification -->
+                <div class="card mt-4">
+                    <div class="card-header" style="background-color: aqua;">
+                        <h3>Academic qualifications</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul id="aqT">
+                            <li></li>
+                        </ul>
+                        <!-- <ul>
+                            <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt, voluptates.</li>
+                        </ul>
+                        <ul>
+                            <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt, voluptates.</li>
+                        </ul> -->
+                    </div>
+                </div>
+
+                <div class="container text-center">
+                    <button class="btn mt-3" style="background-color: aqua; border-style: none; color: black;" onclick="printCV()">Print CV</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script>
+        // function to add work experience
+        function addweField() {
+            let newNode = document.createElement('textarea');
+            newNode.classList.add('form-control');
+            newNode.classList.add('weField');
+            newNode.classList.add('mt-2');
+            newNode.setAttribute('placeholder', 'Enter here!');
+
+            let weOB = document.getElementById('we');
+            let weAddBtnOB = document.querySelector('.weAddBtn');
+
+            weOB.insertBefore(newNode, weAddBtnOB);
+        }
+
+        // function to add academic qualifications
+        function addaqField() {
+            let newNode = document.createElement('textarea');
+            newNode.classList.add('form-control');
+            newNode.classList.add('aqField');
+            newNode.classList.add('mt-2');
+            newNode.setAttribute('placeholder', 'Enter here!');
+
+            let aqOB = document.getElementById('aq');
+            let aqAddBtnOB = document.querySelector('.aqAddBtn');
+
+            aqOB.insertBefore(newNode, aqAddBtnOB);
+        }
+
+        // function to generate CV
+        function generateCV() {
+            let nameField = document.getElementById("nameField").value;
+            let nameT1 = document.getElementById("nameT1");
+            let nameT2 = document.getElementById("nameT2");
+            nameT1.innerHTML = nameField;
+            nameT2.innerHTML = nameField;
+
+            document.getElementById('contactT').innerHTML = document.getElementById('contactField').value;
+            document.getElementById('addressT').innerHTML = document.getElementById('addressField').value;
+
+            document.getElementById('linkedT').innerHTML = document.getElementById('linkedField').value;
+            document.getElementById('gmailT').innerHTML = document.getElementById('emailField').value;
+
+            document.getElementById('objectiveT').innerHTML = document.getElementById('objectiveField').value;
+
+            let wes = document.getElementsByClassName('weField');
+            let str = ''
+            for (let e of wes) {
+                str = str + `<li> ${e.value} </li>`;
+            }
+            document.getElementById('weT').innerHTML = str;
+
+            let aqs = document.getElementsByClassName('aqField');
+            let str1 = ''
+            for (let e of aqs) {
+                str1 = str1 + `<li> ${e.value} </li>`;
+            }
+            document.getElementById('aqT').innerHTML = str1;
+
+            document.getElementById("cv-template").style.display = "block";
+            document.getElementById("cv-form").style.display = "none";
+
+        }
+
+        // function for printing the CV
+        function printCV() {
+            window.print();
+        }
+    </script>
+</body>
+
+</html>
